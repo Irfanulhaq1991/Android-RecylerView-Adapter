@@ -1,0 +1,9 @@
+ext {
+    libraryName = 'RcAdapter'
+    artifactName = 'rcadapter'
+    libraryDescription = 'This is generic adaptor for recycler view which bind data to view using data binding.'
+    siteUrl = 'https://github.com/haramjan/rcadapter'
+    gitUrl =  'https://github.com/haramjan/rcadapter.git'
+    libraryVersion = '1.0.0'
+
+}
