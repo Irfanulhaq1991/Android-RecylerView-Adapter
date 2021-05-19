@@ -1,37 +1,72 @@
-## Welcome to GitHub Pages
+### Description
+This is ***Android Recyclerview Adapter*** which encapsulate the boilerplate code and push all the UI related work into the parent activity class of the Recyclerview.
 
-You can use the [editor on GitHub](https://github.com/haramjan/rcadapter/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+[ ![Download](https://api.bintray.com/packages/irfankhan/android_stuff/rcadapter/images/download.svg) ](https://bintray.com/irfankhan/android_stuff/rcadapter/_latestVersion)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Adding to project
+Enable databinding in the app build.gradle
+   ```
+   android{
+   ...
+    buildFeatures {
+        dataBinding true
+    
+      }
+    }
+   ```
 
-### Markdown
+Add the following line to the app build.gradle dependencies
+   ```
+   implementation 'com.irfan.android:rcadapter:1.0.0'
+   ```
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Usage
 
-```markdown
-Syntax highlighted code block
+1-  implement ItemLayoutManger
 
-# Header 1
-## Header 2
-### Header 3
+2-  create row layouts 
 
-- Bulleted
-- List
+    <?xml version="1.0" encoding="utf-8"?>
+    <layout>
+        <data>
+            <variable
+                name="dataObject"
+                type="com.mm.rcyclerviewadoptorexperiment.DataItems" />
+        </data>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@{dataObject.message}"
+            />
 
-1. Numbered
-2. List
+    </LinearLayout>
+    </layout>
 
-**Bold** and _Italic_ and `Code` text
+3- Override the getLayoutId()
 
-[Link](url) and ![Image](src)
-```
+        override fun getLayoutId(position: Int): Int {
+        return when(position){
+            0 -> R.layout.layout_header
+            else -> R.layout.layout_row
+        }
+    }
+    
+4- Initialiaze adapter, set data, and bind recyclerview
+   
+    private val adapter = RcAdapter<DataItems>(this, this)
+    adapter.setItems(createList())
+    adapter.bindRecyclerView(binding.nameList)
+   
+5- override bindView() ***(Optional)*** :Only if the handling of the view is required like for background color change and adding listeners.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/haramjan/rcadapter/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+    override fun bindView(view: View, getAdapterPosition: () -> Int) {
+        view.setOnClickListener { Toast.makeText(this,"Click Position: ${getAdapterPosition()}",Toast.LENGTH_SHORT).show() }
+    }
+ 
+ 
+ ### License
+  
+   Apache-2.0
