@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/rcadapter/static/css/main.34f25fdf.chunk.css",
-    "main.js": "/rcadapter/static/js/main.4ea60b0d.chunk.js",
-    "main.js.map": "/rcadapter/static/js/main.4ea60b0d.chunk.js.map",
+    "main.js": "/rcadapter/static/js/main.c09283dc.chunk.js",
+    "main.js.map": "/rcadapter/static/js/main.c09283dc.chunk.js.map",
     "runtime-main.js": "/rcadapter/static/js/runtime-main.aa0fcd86.js",
     "runtime-main.js.map": "/rcadapter/static/js/runtime-main.aa0fcd86.js.map",
     "static/js/2.1182ee1e.chunk.js": "/rcadapter/static/js/2.1182ee1e.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.aa0fcd86.js",
     "static/js/2.1182ee1e.chunk.js",
     "static/css/main.34f25fdf.chunk.css",
-    "static/js/main.4ea60b0d.chunk.js"
+    "static/js/main.c09283dc.chunk.js"
   ]
 }
