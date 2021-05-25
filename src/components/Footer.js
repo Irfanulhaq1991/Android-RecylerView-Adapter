@@ -6,7 +6,7 @@ function Footer() {
     }
     return (
     <div className="footer">
-        <p> Created by: Irfan Ul Haq</p>
+        <p> Created By: Irfan Ul Haq</p>
       </div>
     )
 }
